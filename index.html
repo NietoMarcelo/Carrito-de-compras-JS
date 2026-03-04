@@ -3,34 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de accesorios - Productos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- JS -->
-  <script defer src="js/main.js"></script>
-  <title>Entrega 1 - Simulador de carrito de compras</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-light py-5">
-  <div class="container">
-    <header class="text-center mb-4">
-      <h1>Marcelo Nieto</h1>
-    </header>
-
-    <main class="card shadow-sm">
-      <div class="card-body p-4">
-        <h2 class="h5 card-title">Descripción del simulador</h2>
-        <p>
-          Este simulador permite gestionar un carrito de compras de forma interactiva mediante un menú.
-          El usuario puede agregar productos, ver el carrito completo,
-          editar productos existentes, eliminar productos específicos o vaciar todo el carrito.
-          Todas las interacciones se realizan mediante cuadros de diálogo (Prompt, Alert, Confirm).
-        </p>
-
-        <div class="alert alert-info mt-3">
-          <strong>Instrucciones:</strong> El simulador comenzará automáticamente al cargar la página.
-          Seguí las indicaciones en los cuadros de diálogo y seleccioná la opción del menú ingresando
-          el número correspondiente (1 al 6).
-        </div>
+<body class="bg-light">
+  <header class="main-header">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <div class="d-flex align-items-center gap-2">
+        <img src="imagenes/cellPoint.png" class="logo-img" alt="CellPoint">
       </div>
-    </main>
-  </div>
+      <nav class="main-nav d-flex align-items-center gap-3">
+        <a href="index.html" class="nav-link active">Productos</a>
+        <a href="carrito.html" class="nav-link nav-cart-link">
+          Carrito
+          <span id="contador-carrito-header" class="badge bg-primary ms-1 d-none d-sm-inline">0</span>
+        </a>
+      </nav>
+    </div>
+    <div class="header-search">
+      <div class="container py-2">
+        <input
+          type="text"
+          id="buscador-productos"
+          class="form-control search-input"
+          placeholder="Buscar productos">
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4 productos-layout">
+    <h1 class="h4 mb-3 text-center text-md-start">Productos</h1>
+    <div class="row">
+      <aside class="col-md-3 mb-4 mb-md-0">
+        <section class="card shadow-sm mb-3">
+          <div class="card-header small fw-semibold">Categorías</div>
+          <div class="list-group list-group-flush" id="lista-categorias">
+            <button type="button" class="list-group-item list-group-item-action" data-categoria="Celulares">Celulares</button>
+            <button type="button" class="list-group-item list-group-item-action" data-categoria="Fundas">Fundas</button>
+            <button type="button" class="list-group-item list-group-item-action" data-categoria="Auriculares">Auriculares</button>
+            <button type="button" class="list-group-item list-group-item-action" data-categoria="Cargadores">Cargadores</button>
+            <button type="button" class="list-group-item list-group-item-action" data-categoria="Smartwatch">Smartwatch</button>
+            <button type="button" class="list-group-item list-group-item-action" data-categoria="Soportes">Soportes</button>
+          </div>
+        </section>
+
+        <section class="card shadow-sm">
+          <div class="card-header small fw-semibold">Marcas</div>
+          <div class="list-group list-group-flush" id="lista-marcas">
+            <button type="button" class="list-group-item list-group-item-action active" data-marca="Todos">Todos</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Motorola">Motorola</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Samsung">Samsung</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Apple">Apple</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Huawei">Huawei</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Xiaomi">Xiaomi</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="LG">LG</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Lenovo">Lenovo</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Sony">Sony</button>
+            <button type="button" class="list-group-item list-group-item-action" data-marca="Nokia">Nokia</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="col-md-9">
+        <section class="card shadow-sm">
+          <div class="card-body">
+            <p id="mensaje-estado-productos" class="text-muted small mb-3">
+              Mostrando todos los productos disponibles.
+            </p>
+            <div id="lista-productos" class="row g-3">
+              <!-- Productos generados con JavaScript -->
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="py-3 border-top mt-4">
+    <div class="container text-center small text-muted">
+      <img src="imagenes/cellPoint.png" class="logo-img" alt="CellPoint">
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
 </body>
 </html>
